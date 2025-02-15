@@ -1,2 +1,8 @@
 fastapi
 uvicorn
+python-dotenv
+replicate
+requests
+python-multipart
+pydantic
+httpx
