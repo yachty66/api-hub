@@ -1,0 +1,94 @@
+openapi: 3.0.0
+info:
+  title: Premium AI Image Upscaler API
+  description: |
+    A powerful AI-powered image upscaling API that enhances image quality and resolution using state-of-the-art AI models.
+    
+    Features:
+    - Upscale images to higher resolutions
+    - Enhance image quality
+    - Add custom prompts for AI-guided enhancement
+    - Support for various image formats
+    
+    Perfect for:
+    - Photo enhancement applications
+    - E-commerce product images
+    - Digital art restoration
+    - Content creation platforms
+  version: 1.0.0
+  contact:
+    name: API Support
+    email: your-email@example.com
+
+servers:
+  - url: https://premium-ai-image-upscaler-api-production.up.railway.app
+    description: Production server
+
+paths:
+  /upscale:
+    post:
+      summary: Upscale and enhance an image
+      description: |
+        Takes an image URL and optional prompt to enhance and upscale the image using AI.
+        Returns the processed image in PNG format.
+      operationId: upscaleImage
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - image_url
+              properties:
+                image_url:
+                  type: string
+                  format: uri
+                  description: URL of the image to be processed
+                  example: "https://example.com/image.jpg"
+                prompt:
+                  type: string
+                  description: Optional prompt to guide the AI enhancement
+                  example: "UHD 4k vogue style"
+      responses:
+        '200':
+          description: Successfully processed image
+          content:
+            image/png:
+              schema:
+                type: string
+                format: binary
+        '400':
+          description: Invalid input
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  detail:
+                    type: string
+        '500':
+          description: Server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  detail:
+                    type: string
+      tags:
+        - Image Processing
+
+components:
+  schemas:
+    Error:
+      type: object
+      properties:
+        detail:
+          type: string
+          description: Error message
+          example: "Invalid image URL"
+
+tags:
+  - name: Image Processing
+    description: Endpoints for processing and enhancing images
