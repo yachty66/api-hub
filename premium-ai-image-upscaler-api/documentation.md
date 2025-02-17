@@ -12,9 +12,7 @@ To begin using the Premium AI Image Upscaler API, follow these steps:
 
 1. **Subscribe to a plan**: Visit our [Pricing page](https://rapidapi.com/arxivgpt-arxivgpt-default/api/premium-ai-image-upscaler-api1/pricing) on RapidAPI and choose a subscription plan that fits your needs.
 
-2. **Make your first API call**: Use the RapidAPI Playground to test the endpoint. Simply provide an image URL and an enhancement prompt to see the API in action.
-
-3. **Integrate into your application**: Use the provided code snippets to integrate the API into your project.
+2. **Make your first API call**: Use the [code example below](#code-example) to test the endpoint. Simply provide an image URL and an enhancement prompt, or use the example URL from the RapidAPI page to see the API in action.
 
 ## Authentication
 
@@ -58,7 +56,7 @@ Returns a JSON object containing:
 
 #### Code Example
 
-This code example will take the turn the result into a .png file named upscaled_image.png.
+This code example (you still need to insert your personal details, like the image URL and your API key) will turn the result into a .png file named upscaled_image.png.
 
 ```python
 import requests
