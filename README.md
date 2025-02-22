@@ -7,8 +7,6 @@
 - make research on how i can get traffic for 
 - send the website/project to friends and ask them if they want to be cofounder in the project
 
-
-
 - find a good api i can use to put on rapidapi
     - what about taking the most trending models from replicate and then put them on rapid? lets do it 
         - https://replicate.com/batouresearch/magic-image-refiner

@@ -1,1 +1,0 @@
-- icons need to be size 150x150 
