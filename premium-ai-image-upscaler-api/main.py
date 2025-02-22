@@ -25,8 +25,14 @@ def upload_to_s3(image_data: BytesIO, bucket_name: str) -> str:
     """
     Upload image data to S3 and return the URL
     """
-    # Create S3 client
-    s3_client = boto3.client('s3')
+    # Create a session with AWS credentials
+    session = boto3.Session(
+        aws_access_key_id=os.getenv('AWS_ACCESS_KEY_ID'),
+        aws_secret_access_key=os.getenv('AWS_SECRET_ACCESS_KEY')
+    )
+    
+    # Create S3 client using the session
+    s3_client = session.client('s3')
     
     # Generate unique filename with directory structure
     file_name = f"premium-ai-image-upscaler-api/{uuid.uuid4()}.png"
