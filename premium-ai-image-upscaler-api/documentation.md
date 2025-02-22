@@ -2,8 +2,8 @@
 
 Premium AI Image Upscaler API transforms your images into high-quality, enhanced versions with improved resolution and clarity:
 
-| Before | After |
-|--------|-------|
+| Before                                                            | After                                                                      |
+| ----------------------------------------------------------------- | -------------------------------------------------------------------------- |
 | ![Before Image](https://storage.googleapis.com/apihub85/0_1.webp) | ![After Image](https://storage.googleapis.com/apihub85/upscaled_image.png) |
 
 ## Getting Started
@@ -14,9 +14,12 @@ To begin using the Premium AI Image Upscaler API, follow these steps:
 
 2. **Make your first API call**: Use the [code example below](#code-example) to test the endpoint. Simply provide an image URL and an enhancement prompt, or use the example URL from the RapidAPI page to see the API in action.
 
+> **Note**: On your first request, the API server may need to cold start, which can take up to 3 minutes. All subsequent requests will be significantly faster. This is normal behavior and only affects the very first request after a period of inactivity.
+
 ## Authentication
 
 Authentication is handled through RapidAPI. Include these headers in your requests:
+
 - `X-RapidAPI-Key`: Your RapidAPI key
 - `X-RapidAPI-Host`: "premium-ai-image-upscaler-api1.p.rapidapi.com"
 
@@ -32,25 +35,24 @@ Enhances and upscales an image using AI technology.
 
 #### Parameters
 
-| Parameter  | Type   | Required | Description                                    |
-|------------|--------|----------|------------------------------------------------|
-| image_url  | string | Yes      | URL of the image to process                    |
-| prompt     | string | Yes      | Prompt to guide the AI enhancement (e.g., "UHD 4k vogue style") |
+| Parameter | Type   | Required | Description                                                     |
+| --------- | ------ | -------- | --------------------------------------------------------------- |
+| image_url | string | Yes      | URL of the image to process                                     |
+| prompt    | string | Yes      | Prompt to guide the AI enhancement (e.g., "UHD 4k vogue style") |
 
 #### Response
 
 Returns a JSON object containing:
+
 - `status`: Success status of the request
-- `image`: Base64-encoded enhanced image
-- `format`: Image format (typically "png")
+- `url`: Direct URL to the enhanced image
 
 #### Example Response
 
 ```json
 {
-    "status": "success",
-    "image": "base64_encoded_image_data",
-    "format": "png"
+  "status": "success",
+  "url": "https://api-lexica.s3.amazonaws.com/premium-ai-image-upscaler-api/97ed1614-7986-424f-ad9f-5a4335408e0e.png"
 }
 ```
 
@@ -60,7 +62,6 @@ This code example (you still need to insert your personal details, like the imag
 
 ```python
 import requests
-import base64
 
 url = "https://premium-ai-image-upscaler-api1.p.rapidapi.com/upscale"
 
@@ -75,13 +76,7 @@ headers = {
 }
 
 response = requests.get(url, headers=headers, params=querystring)
-
 data = response.json()
-
-image_data = base64.b64decode(data["image"])
-with open("upscaled_image.png", "wb") as f:
-    f.write(image_data)
-print("Image saved successfully")
 ```
 
 ## Best practices

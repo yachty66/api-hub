@@ -3,12 +3,9 @@ from fastapi.responses import Response
 import replicate
 import os
 from pydantic import BaseModel
-import requests
-import traceback
 import logging
 from dotenv import load_dotenv
 from io import BytesIO
-import base64
 import boto3
 import uuid
 
