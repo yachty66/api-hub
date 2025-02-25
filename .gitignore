@@ -1,2 +1,4 @@
 __pycache__
 .env
+# Ignore github folder containing separate repositories
+/github/

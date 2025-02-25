@@ -85,4 +85,4 @@ The prompt is required for the model, and the more the prompt describes the inpu
 
 ## Support
 
-In case you are facing any issues, please send a message with the issue to maxhager28@gmail.com. A response will come within 24 hours, guaranteed.
+In case you are facing any issues, please send a message with the issue to support@apilexica.com. A response will come within 24 hours, guaranteed.
