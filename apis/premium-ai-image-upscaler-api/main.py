@@ -80,7 +80,9 @@ async def upscale_image(
             "status": "success",
             "url": s3_url
         }
-            
+    
     except Exception as e:
-        logger.error(f"Unexpected error: {str(e)}")
-        raise HTTPException(status_code=500, detail=str(e))
+        return {
+            "status": "error",
+            "message": "Error appeared please try again or reach out to support@apilexica.com"
+        }

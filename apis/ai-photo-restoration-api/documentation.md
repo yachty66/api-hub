@@ -14,7 +14,7 @@ To begin using the Premium AI Image Upscaler API, follow these steps:
 
 2. **Make your first API call**: Use the [code example below](#code-example) to test the endpoint. Simply provide an image URL and an enhancement prompt, or use the example URL from the RapidAPI page to see the API in action.
 
-> **Note**: On your first request, the API server may need to cold start, which can take up to 3 minutes. All subsequent requests will be significantly faster. This is normal behavior and only affects the very first request after a period of inactivity.
+> **Note**: On your first request, the API server may need to cold start, which can take up to 3 minutes. All subsequent requests will be significantly faster. This is normal behavior and only affects the very first request after a period of inactivity. If you need the server to be permanently available without cold starts, please reach out to support@apilexica.com.
 
 ## Authentication
 

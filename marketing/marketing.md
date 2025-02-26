@@ -34,3 +34,42 @@
 🚀 Midjourney Python API: Unofficial wrapper for AI art generation. 🎨 Python-friendly, easy setup, for developers & artists. Python, AI, Midjourney, art, technology, image gen" (and link the docs for the respective API)
 """
 3. 
+
+## LinkedIn
+
+🚀 Excited to announce our new Premium AI Image Upscaler API!
+
+🔍 What it does:
+• Transform low-resolution images into crystal-clear, high-quality versions
+• Powered by advanced AI upscaling technology
+• Simple REST API integration
+• Custom enhancement prompts for perfect results
+
+💡 Perfect for:
+• E-commerce platforms needing high-quality product images
+• Digital marketers enhancing social media content
+• Web developers automating image optimization
+• Content creators upgrading their visual assets
+
+✨ Before/After showcase: [Include your comparison images]
+
+🔗 Try it now: [Your RapidAPI Link]
+#AI #ImageProcessing #API #Technology #Innovation #ComputerVision
+
+## Twitter 
+
+Launching APILexcia - we make APIs accessible 
+
+🆕 Launching Premium AI Image Upscaler API!
+
+✨ Transform any image into a professional-grade, high-resolution version with just one API call
+
+🎯 Features:
+• AI-powered 4K upscaling
+• Custom enhancement prompts
+• Lightning-fast processing
+
+🖼️ [Before/After Image]
+🔗 [Your RapidAPI Link]
+
+#API #AI #ImageProcessing
