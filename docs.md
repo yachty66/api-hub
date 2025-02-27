@@ -20,3 +20,19 @@ response = requests.get(
 print(response.json())
 
 ## setup  
+
+1. go to project page UI
+
+2. Click the + create button at the top right
+
+3. Choose "empty service"
+
+4. Rename empty service to api and add all shared variables
+
+5. set root directory to "apis/nameofservice"
+
+5. Run "railway service" in CLI and choose the service we just created
+
+6. Run "railway up" from root of directory
+
+7. Service is connected now

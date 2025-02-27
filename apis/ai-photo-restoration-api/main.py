@@ -8,6 +8,7 @@ from dotenv import load_dotenv
 from io import BytesIO
 import boto3
 import uuid
+import requests
 
 # Load environment variables
 load_dotenv()
@@ -42,38 +43,33 @@ def upload_to_s3(image_data: BytesIO, bucket_name: str) -> str:
     url = f"https://{bucket_name}.s3.amazonaws.com/{file_name}"
     return url
 
-
 class ImageRequest(BaseModel):
     image_url: str
     prompt: str = None
 
 @app.get("/restore")
-async def upscale_image(
-    image_url: str,
-    prompt: str
+async def restore_image(
+    image_url: str
 ):
     try:
         token = os.getenv("REPLICATE_API_TOKEN")
         bucket_name = os.getenv("AWS_BUCKET_NAME")
 
         input = {
-            "jpeg": "40",
-            "image": "https://api-lexica.s3.us-east-1.amazonaws.com/examples/dsc01290.jpg",
-            "noise": "15"
+            "jpeg": 40,
+            "image": image_url,
+            "noise": 15
         }
         
-        output = replicate.run(
+        # Get the output URL from Replicate
+        output_url = replicate.run(
             "jingyunliang/swinir:660d922d33153019e8c263a3bba265de882e7f4f70396546b6c9c8f9d47a021a",
             input=input
         )
         
-        # Create a BytesIO object to store the image
-        image_data = BytesIO()
-        
-        # Write the first output item directly to BytesIO
-        for item in output:
-            image_data.write(item.read())
-            break
+        # Download the image from Replicate
+        response = requests.get(output_url)
+        image_data = BytesIO(response.content)
         
         # Upload to S3 and get URL
         s3_url = upload_to_s3(image_data, bucket_name)
@@ -89,6 +85,3 @@ async def upscale_image(
             "status": "error",
             "message": "Error appeared please try again or reach out to support@apilexica.com"
         }
-    
-
-        
