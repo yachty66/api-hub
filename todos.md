@@ -7,7 +7,7 @@ ok so its clear i am going to improve my api page for SEO and also my rapidapi d
 
 ## next apis to implement 
 
-- ai photo restoration 
+- ai photo restoration -  
 - ai 3d model api
 - ai music generator api
 - text to speech ai api

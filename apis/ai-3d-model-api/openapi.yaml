@@ -1,0 +1,57 @@
+openapi: 3.0.0
+
+info:
+  title: AI Photo Restoration API
+  version: 1.0.0
+  description: Advanced AI-powered image restoration service that enhances image quality, reduces noise, and recovers details.
+
+servers:
+  - url: https://ai-photo-restoration-api-production.up.railway.app
+    description: Production server
+
+paths:
+  /restore:
+    get:
+      summary: Restore and enhance an image
+      description: Takes an image URL and uses advanced AI to restore and enhance the image quality. Returns a JSON response with either a success status and URL, or an error status and message.
+      parameters:
+        - name: image_url
+          in: query
+          required: true
+          schema:
+            type: string
+          description: URL of the image to restore
+          example: "https://api-lexica.s3.us-east-1.amazonaws.com/examples/0014.jpg"
+      responses:
+        "200":
+          description: API Response (Success or Error)
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    required:
+                      - status
+                      - url
+                    properties:
+                      status:
+                        type: string
+                        enum: ["success"]
+                        description: Success status
+                      url:
+                        type: string
+                        description: Direct URL to the restored image
+                        example: "https://api-lexica.s3.amazonaws.com/ai-photo-restoration-api/baa747c8-e5d3-43b3-b436-d4ff7ed8bdee.png"
+                  - type: object
+                    required:
+                      - status
+                      - message
+                    properties:
+                      status:
+                        type: string
+                        enum: ["error"]
+                        description: Error status
+                      message:
+                        type: string
+                        description: Error message details
+                        example: "Error appeared please try again or reach out to support@apilexica.com"
